@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .Container {
+        display: flex;
+      }
+
+      #first {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 400px;
+        background-color: green;
+        margin-left: 200px;
+      }
+      #second {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+      }
+      #third {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 400px;
+        background-color: violet;
+        margin-left: 300px;
+      }
+      #fourth {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+      }
+      button {
+        margin-left: 200px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Container">
+      <div id="first">
+        <div id="second">I am left</div>
+      </div>
+      <div id="third">
+        <div id="fourth">I am rigtht</div>
+      </div>
+    </div>
+
+    <button onclick="changeShape()">Change Shape</button>
+    <button onclick="changeDirection()">Change Direction</button>
+    <button onclick="reset()">Reset</button>
+
+    <script>
+      let toggle = true;
+      function changeShape() {
+        if (toggle) {
+          var div = document.getElementById("first");
+          var div1 = document.getElementById("third");
+          div.style.transitionDuration = "0.5s";
+          div1.style.transitionDuration = "0.5s";
+          div.style.borderRadius = "0";
+          div1.style.borderRadius = "0";
+          div.style.borderEndEndRadius = "50%";
+          div1.style.borderStartEndRadius = "50%";
+          div.style.backgroundColor = "blue";
+          div1.style.backgroundColor = "red";
+
+          toggle = false;
+        } else {
+          var div = document.getElementById("first");
+          var div1 = document.getElementById("third");
+          div.style.transitionDuration = "0.5s";
+          div1.style.transitionDuration = "0.5s";
+          div1.style.borderRadius = "0";
+          div.style.borderRadius = "0";
+          div.style.borderStartStartRadius = "50%";
+          div1.style.borderEndStartRadius = "50%";
+          div.style.backgroundColor = "green";
+          div1.style.backgroundColor = "Yellow";
+          toggle = true;
+        }
+      }
+      let toggle1 = true;
+      function changeDirection() {
+        if (toggle1) {
+          var div = document.getElementById("first");
+          var div1 = document.getElementById("third");
+          var div2 = document.getElementById("second");
+          var div3 = document.getElementById("fourth");
+
+          div.style.borderRadius = "0";
+          div1.style.borderRadius = "0";
+          div.style.borderEndEndRadius = "50%";
+          div1.style.borderStartEndRadius = "50%";
+          div.style.backgroundColor = "brown";
+          div1.style.backgroundColor = "green";
+          div2.style.backgroundColor = "purple";
+          div3.style.backgroundColor = "orange";
+
+          toggle1 = false;
+        } else {
+          var div = document.getElementById("first");
+          var div1 = document.getElementById("third");
+          var div2 = document.getElementById("second");
+
+          var div3 = document.getElementById("fourth");
+          div1.style.borderRadius = "0";
+          div.style.borderRadius = "0";
+          div.style.borderStartStartRadius = "50%";
+          div1.style.borderEndStartRadius = "50%";
+          div.style.backgroundColor = "green";
+          div1.style.backgroundColor = "brown";
+          div2.style.backgroundColor = "orange";
+          div3.style.backgroundColor = "blue";
+          toggle1 = true;
+        }
+      }
+      function reset() {
+        var div = document.getElementById("first");
+        var div1 = document.getElementById("third");
+        var div2 = document.getElementById("second");
+        var div3 = document.getElementById("fourth");
+        div.style.borderRadius = "0";
+        div1.style.borderRadius = "0";
+        div2.style.borderRadius = "0";
+        div3.style.borderRadius = "0";
+      }
+    </script>
+  </body>
+</html>
